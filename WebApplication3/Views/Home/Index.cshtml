@@ -1,0 +1,18 @@
+﻿@model Rocky_Models.ViewModels.HomeVM
+
+<div class="container">
+    <div class="text-danger">
+        <button class="btn btn-dark filter-button" dat-filter="all">All</button>
+        @foreach (var obj in Model.Categories)
+        {
+            <button class="btn btn-outline-secondary filter-button" data-filter="@obj.CategoryName.Replace(' ','_')">@obj.CategoryName</button>
+        }
+    </div>
+    <br />
+    <div class="row">
+        @foreach (var prod in Model.Products)
+        {
+            <partial name="_IndividualProductCard" model="prod" />
+        }
+    </div>
+</div>
